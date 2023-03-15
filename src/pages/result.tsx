@@ -156,6 +156,7 @@ export default function Result() {
           <FitHobby
             fitHobbyTypes={recommendation.fitHobbyTypes}
             isShow={!isLoading && view === 'fitHobby'}
+            userName={recommendation.user.name}
           />
           <Share
             hobbyType={recommendation.hobbyType}
