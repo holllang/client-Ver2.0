@@ -39,9 +39,9 @@ function HobbyDetail({ HobbyDetailTypes, isShow = false }: HobbyDetailProps) {
       <p className="mb-24 text-[1.125rem] leading-[1.875rem]">
         {currentHobby?.description}
       </p>
-      <p className="mb-6 text-[1.5rem] font-semibold">
-        <span className=" text-main-3">{nickname}</span>
-        <span className=" text-main-4">님 홀랑 즐기기</span>
+      <p className="mb-6  font-semibold">
+        <span className=" text-[1.5rem] text-main-3">{nickname}</span>
+        <span className=" text-[1.5rem] text-main-4">님 홀랑 즐기기</span>
       </p>
       <div className="flex h-[15.9375rem] flex-col items-center justify-center rounded-[1.875rem] bg-gray-1">
         <div className="mb-4 flex gap-6">

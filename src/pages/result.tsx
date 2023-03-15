@@ -45,7 +45,7 @@ export default function Result() {
   });
 
   return (
-    <div className="text-center" ref={sliderRef}>
+    <div className="overflow-scroll text-center" ref={sliderRef}>
       {!isLoading && (
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}

@@ -1,11 +1,10 @@
 import Button from '@components/common/Button';
 import KakaoShare from '@components/result/KakaoShare';
-import * as htmlToImage from 'html-to-image';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import { HobbyType } from 'types/result';
-
+import html2canvas from 'html2canvas';
 interface ShareProps {
   hobbyType: HobbyType;
   userName: string;
@@ -27,13 +26,15 @@ export default function Share({
   const router = useRouter();
 
   const handleDownload = async () => {
-    const dataUrl = await htmlToImage.toPng(containerRef.current);
-    const link = document.createElement('a');
-    link.download = 'hollang-hobby.png';
-    link.href = dataUrl;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const element = document.getElementById('containerRef'); // replace 'my-element' with the ID of the element you want to capture
+    if (!element) return;
+    html2canvas(element).then(function (canvas) {
+      const link = document.createElement('a');
+      document.body.appendChild(link);
+      link.download = 'image.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    });
   };
   return (
     <div

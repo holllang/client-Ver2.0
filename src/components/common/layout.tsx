@@ -31,10 +31,9 @@ export default function Layout({ children }: LayoutProps) {
     }
     return 'max-w-[28.125rem]';
   };
-  console.log(applicationValue);
 
   return (
-    <div className="relative flex h-screen w-screen justify-center bg-sub-2 ">
+    <div className="relative flex h-screen w-screen justify-center overflow-hidden bg-sub-2">
       <img
         className={`fixed left-0 top-0 h-full ${
           applicationValue && applicationValue.innerWidth > 450 ? '' : 'hidden'
@@ -53,7 +52,7 @@ export default function Layout({ children }: LayoutProps) {
         className={`relative h-full w-full ${getWidth(
           applicationValue?.innerWidth,
           applicationValue?.innerHeight,
-        )} overflow-y-scroll bg-gray-0 px-5`}
+        )}  overflow-y-scroll bg-gray-0 px-5`}
       >
         {children}
       </div>

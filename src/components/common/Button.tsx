@@ -42,8 +42,10 @@ export default function Button({
     <button
       type={type}
       onClick={onClick}
-      className={`flex h-[4.375rem] w-full cursor-pointer items-center justify-center rounded-[1.875rem] py-[1.25rem] font-normal text-gray-8 ease-in disabled:cursor-not-allowed ${className}
-      ${setClassNameByProperty(property)}`}
+      className={`flex h-[4.375rem] w-full cursor-pointer items-center justify-center rounded-[1.875rem] py-[1.25rem] font-normal text-gray-8 ease-in disabled:cursor-not-allowed ${setClassNameByProperty(
+        property,
+      )} ${className}
+      `}
       {...props}
     >
       {children}

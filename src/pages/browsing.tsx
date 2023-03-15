@@ -51,10 +51,7 @@ export default function browsing() {
             </div>
           ))}
       </section>
-      <div
-        style={{ width: `${containerWidth}px` }}
-        className={` fixed left-[50%] bottom-[1.375rem] translate-x-[-50%] bg-gray-0`}
-      >
+      <div className="mt-5">
         <Button onClick={() => router.back()}>이전으로</Button>
       </div>
     </div>
