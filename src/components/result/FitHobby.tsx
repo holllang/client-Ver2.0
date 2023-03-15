@@ -5,12 +5,14 @@ import { FitHobbyType } from 'types/result';
 interface FitHobbyProps {
   fitHobbyTypes: FitHobbyType[];
   isShow: boolean;
+  userName: string;
   [key: string]: any;
 }
 
 export default function FitHobby({
   fitHobbyTypes,
   isShow = false,
+  userName,
 }: FitHobbyProps) {
   const [select, setSelect] = useState<number>(0);
   const selectedType = fitHobbyTypes.filter(
@@ -58,7 +60,7 @@ export default function FitHobby({
             className="mt-10 mb-5"
           />
           <p className="text-[1.375rem] text-gray-7">
-            꼬꼬꼬님과 잘 맞는 유형을 선택해봐요!
+            {userName}님과 잘 맞는 유형을 선택해봐요!
           </p>
         </div>
         <div
