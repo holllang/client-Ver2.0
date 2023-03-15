@@ -12,7 +12,7 @@ import IconTurn from '@public/static/icon_turn.svg';
 import { getRecommendation } from 'api/getRecommendation';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { HobbyType } from 'types/result';
@@ -39,13 +39,15 @@ export default function Result() {
     return router.query.view !== undefined ? router.query.view : '';
   }, [router.query]);
 
-  sliderRef.current?.scrollIntoView({
-    block: 'start',
-    behavior: 'smooth',
-  });
+  useEffect(() => {
+    sliderRef.current?.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    });
+  }, [view]);
 
   return (
-    <div className="overflow-scroll text-center" ref={sliderRef}>
+    <div id="result" className="text-center" ref={sliderRef}>
       {!isLoading && (
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}
@@ -99,8 +101,8 @@ export default function Result() {
             ))}
           </Swiper>
         </section>
-        <section className="mt-12 w-full font-AppleEB">
-          <p className="text-2xl text-main-4">
+        <section className="mt-12 w-full">
+          <p className="font-AppleEB  text-2xl text-main-4">
             <span className="font-AppleEB text-2xl text-main-3 ">
               {recommendation?.user.name}
             </span>

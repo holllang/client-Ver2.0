@@ -8,6 +8,7 @@ interface ButtonPropsType
   type?: 'button' | 'submit' | 'reset' | undefined;
   children?: React.ReactElement | string;
   className?: string;
+  small?: boolean;
   onClick?: () => void;
 }
 
@@ -18,13 +19,16 @@ export default function Button({
   type = 'button',
   children,
   className,
+  small = false,
   onClick,
   ...props
 }: ButtonPropsType) {
   const setClassNameByProperty = (property: string) => {
     switch (property) {
       case 'primary':
-        return 'bg-main-2 hover:bg-main-4 text-[1.375rem]';
+        return small
+          ? '!h-[3.5rem] rounded-[1.25rem] bg-main-2 hover:bg-main-4 text-[1.125rem]'
+          : 'bg-main-2 hover:bg-main-4 text-[1.375rem]';
       case 'secondary':
         return 'text-[1.375rem] hover:bg-gray-4 bg-gray-2';
       case 'question':

@@ -19,6 +19,7 @@ export default function Card({ hobby, id }: CardProps) {
       </div>
       <div className="mt-2 px-4">
         <Button
+          small
           onClick={() => {
             router.push({
               pathname: 'result',

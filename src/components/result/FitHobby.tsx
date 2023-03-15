@@ -7,7 +7,6 @@ interface FitHobbyProps {
   isShow: boolean;
   [key: string]: any;
 }
-const QUESTION_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
 export default function FitHobby({
   fitHobbyTypes,
@@ -17,6 +16,7 @@ export default function FitHobby({
   const selectedType = fitHobbyTypes.filter(
     (fitHobbyType) => +fitHobbyType.id === select,
   )[0];
+  const QUESTION_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
 
   return (
     <div className={isShow ? '' : 'hidden'}>
@@ -52,7 +52,7 @@ export default function FitHobby({
         >
           <Image
             alt="question-mark"
-            src={QUESTION_IMAGE_SRC}
+            src={QUESTION_IMAGE_SRC && QUESTION_IMAGE_SRC}
             width={180}
             height={180}
             className="mt-10 mb-5"
@@ -61,7 +61,6 @@ export default function FitHobby({
             꼬꼬꼬님과 잘 맞는 유형을 선택해봐요!
           </p>
         </div>
-
         <div
           className={`flex flex-col items-center ${select === 0 && 'hidden'}`}
         >
