@@ -66,11 +66,7 @@ export default function Share({
         </p>
         <article className="bg-between  my-[1.5rem] flex w-[15rem] justify-between">
           {hobbies.map((hobby: HobbyType, index: number) => (
-            <Image
-              alt="hobby"
-              height={50}
-              key={index}
-            />
+            <div className="relative h-[3.125rem] w-[3.125rem]">
               <Image alt="hobby" src={hobby.imageUrl} fill key={index} />
             </div>
           ))}
