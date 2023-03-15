@@ -14,7 +14,6 @@ interface ModalProps {
 }
 
 export default function Model({ uri, isLoading, setIsLoading }: ModalProps) {
-  const router = useRouter();
   const controlsRef = useRef<any>(null);
   const groupRef = useRef<any>({ rotation: { x: 0, y: 0, z: 0 } });
   const [model, setModel] = useState<Object3D | null>(null);

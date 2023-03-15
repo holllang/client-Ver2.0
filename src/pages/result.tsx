@@ -45,7 +45,7 @@ export default function Result() {
   });
 
   return (
-    <div className="overflow-scroll text-center" ref={sliderRef}>
+    <div className="text-center" ref={sliderRef}>
       {!isLoading && (
         <TopBar
           mainMessage={view === '' ? 'result' : 'main'}
@@ -99,8 +99,8 @@ export default function Result() {
             ))}
           </Swiper>
         </section>
-        <section className="mt-12 w-full font-AppleEB">
-          <p className="text-2xl text-main-4">
+        <section className="mt-12 w-full">
+          <p className="font-AppleEB  text-2xl text-main-4">
             <span className="font-AppleEB text-2xl text-main-3 ">
               {recommendation?.user.name}
             </span>
