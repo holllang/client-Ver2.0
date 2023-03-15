@@ -21,11 +21,11 @@ function HobbyDetail({ HobbyDetailTypes, isShow = false }: HobbyDetailProps) {
     if (String(hobby.id) === hobbyId) return hobby;
   })[0];
   return (
-    <div className={`px-5 pt-4 pb-12 ${!isShow && 'hidden'}`}>
+    <div className={`pt-4 pb-12 ${!isShow && 'hidden'}`}>
       <p className="mb-10 text-[1.5rem] font-semibold text-main-4">
         더 알아보기
       </p>
-      <div className=" mx-auto mb-[1.125rem] flex h-[190px] w-[190px] items-center justify-center rounded-[1.875rem] bg-gray-2">
+      <div className="mx-auto mb-[1.125rem] flex h-[190px] w-[190px] items-center justify-center rounded-[1.875rem] bg-gray-2">
         <Image
           width={100}
           height={100}
