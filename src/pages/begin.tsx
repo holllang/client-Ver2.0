@@ -31,21 +31,23 @@ export default function Begin() {
   }, []);
 
   return (
-    <div className="relative h-full">
-      <TopBar />
-      {modal && (
-        <Modal
-          message="닉네임을 입력해주세요"
-          onCloseModal={() => {
-            setModal(false);
-          }}
-        />
-      )}
-      <div className="mt-28">
-        <p className="font-AppleB text-3xl">홀랑에 빠질 준비 되셨나요?</p>
-        <p className="mt-3 text-lg text-gray-8">
-          인공지능이 홀랑 빠질 취미로 안내할거에요
-        </p>
+    <div className="relative flex h-full flex-col justify-between">
+      <div>
+        <TopBar />
+        {modal && (
+          <Modal
+            message="닉네임을 입력해주세요"
+            onCloseModal={() => {
+              setModal(false);
+            }}
+          />
+        )}
+        <div className="mt-28">
+          <p className="font-AppleB text-3xl">홀랑에 빠질 준비 되셨나요?</p>
+          <p className="mt-3 text-lg text-gray-8">
+            인공지능이 홀랑 빠질 취미로 안내할거에요
+          </p>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit}>
@@ -64,7 +66,7 @@ export default function Begin() {
             한글로 세글자 이내까지 입력가능해요
           </span>
         </div>
-        <div className="w-[full] ">
+        <div className="mb-[1.375rem] w-[full]">
           <Button type="submit">홀랑 테스트하러 가기</Button>
         </div>
       </form>
