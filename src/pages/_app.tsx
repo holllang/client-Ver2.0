@@ -44,6 +44,8 @@ export default function App({ Component, pageProps }: AppProps) {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   };
 
+  console.warn = console.error = () => {};
+
   useEffect(() => {
     setScreenSize();
     const start = () => {
