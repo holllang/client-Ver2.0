@@ -50,13 +50,9 @@ export default function Share({
         ref={containerRef}
         className="flex w-full flex-col items-center rounded-[1.25rem] border border-main-3 bg-main-1 py-2"
       >
-        <Image
-          alt="hobby"
-          src={hobbyType.imageUrl}
-          width={150}
-          height={150}
-          className="py-4"
-        />
+        <div className="relative h-[15.625rem] w-[15.625rem]">
+          <Image alt="hobby" src={hobbyType.imageUrl} fill className="py-4" />
+        </div>
         <p className="mt-[1rem] text-[1.5rem] font-bold text-main-4">
           {hobbyType.name}
         </p>
@@ -70,13 +66,9 @@ export default function Share({
         </p>
         <article className="bg-between  my-[1.5rem] flex w-[15rem] justify-between">
           {hobbies.map((hobby: HobbyType, index: number) => (
-            <Image
-              alt="hobby"
-              src={hobby.imageUrl}
-              width={50}
-              height={50}
-              key={index}
-            />
+            <div className="relative h-[3.125rem] w-[3.125rem]">
+              <Image alt="hobby" src={hobby.imageUrl} fill key={index} />
+            </div>
           ))}
         </article>
       </div>
