@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from 'next/script';
 
 export default function MetaHead() {
   return (
@@ -20,6 +21,24 @@ export default function MetaHead() {
       <meta
         property="og:image"
         content="https://user-images.githubusercontent.com/62178788/223585054-6d1c0b3a-1f2d-4f0b-b238-1c5b3c6a1292.png"
+      />
+      <Script>
+        strategy="afterInteractive" src=
+        {`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_APPKEY}`}
+      </Script>
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_APPKEY}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
       />
       <meta property="og:article:author" content="홀랑에 홀랑 빠져봐!" />
     </Head>
