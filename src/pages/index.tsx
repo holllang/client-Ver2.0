@@ -5,6 +5,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { getUserCount } from '../api/getUserCount';
 import Image from 'next/image';
 import { useQuery } from 'react-query';
+import GoogleAd from '@components/common/GoogleAd';
 
 export default function Home() {
   const TAPBAR_HEIGHT = 84;
@@ -138,7 +139,6 @@ export default function Home() {
         <p
           draggable
           className="mb-[2rem] text-[1.125rem] font-normal leading-[1.57rem]"
-
         >
           슬라이더를 밀어 입장하기!
         </p>
@@ -179,10 +179,10 @@ export default function Home() {
         <button
           onClick={() => router.push('/browsing')}
           className="cursor-pointer text-[1.125rem] font-normal leading-[1.57rem]"
-
         >
           둘러보기
         </button>
+        <GoogleAd></GoogleAd>
       </div>
     </div>
   );
