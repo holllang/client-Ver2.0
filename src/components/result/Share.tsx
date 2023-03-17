@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import { HobbyType } from 'types/result';
 import html2canvas from 'html2canvas';
+import GoogleAd from '@components/common/GoogleAd';
+
 interface ShareProps {
   hobbyType: HobbyType;
   userName: string;
@@ -97,6 +99,7 @@ export default function Share({
           <KakaoShare />
         </section>
       )}
+      <GoogleAd></GoogleAd>
     </div>
   );
 }

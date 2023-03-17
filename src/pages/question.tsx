@@ -13,6 +13,7 @@ import { useSetRecoilState } from 'recoil';
 import { UserRecommendation } from 'store/atom';
 import { getUserQuestion, getUserResult } from 'api/getUserQuestion';
 import Loader from '@components/common/Loader';
+import GoogleAd from '@components/common/GoogleAd';
 
 interface QuestionDataType {
   answers: QuestionContentType[];
@@ -150,6 +151,7 @@ export default function question() {
                 ),
               )}
             </div>
+            <GoogleAd></GoogleAd>
           </section>
         )}
       </div>
