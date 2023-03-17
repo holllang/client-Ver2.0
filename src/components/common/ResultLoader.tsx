@@ -25,7 +25,7 @@ export default function ResultLoader() {
           />
         </div>
       </div>
-      <p className="mt-[3.5rem] text-[1.375rem] leading-8 text-gray-6">
+      <p className="mt-[3.5rem] font-AppleB text-[1.375rem] leading-8 text-gray-6">
         인공지능이 {nickname}님을 위한
         <br /> 최적의 취미를 찾고있어요!
       </p>
