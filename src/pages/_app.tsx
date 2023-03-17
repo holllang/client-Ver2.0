@@ -57,7 +57,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     if (navigator.userAgent.includes('KAKAOTALK')) {
       window.location.href =
-        'intent://https://hollang-gueit214.vercel.app/#Intent;scheme=http;package=com.android.chrome;end';
+        'intent://https://hollang.swygbro.com//#Intent;scheme=http;package=com.android.chrome;end';
     }
 
     Router.events.on('routeChangeStart', start);
