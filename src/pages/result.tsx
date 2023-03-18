@@ -81,8 +81,7 @@ export default function Result() {
 
           <IconTurn className="my-1" />
           <span className="text-[1rem] text-gray-5">회전하면 돌아가요!</span>
-
-          <p className="mt-12 w-full text-[1.125rem] leading-[1.875rem] text-gray-8">
+          <p className="mt-12 w-full text-[1.125rem] leading-[1.5625rem] text-gray-8">
             {recommendation?.hobbyType.description}
           </p>
         </section>
@@ -102,6 +101,7 @@ export default function Result() {
             ))}
           </Swiper>
         </section>
+        <div className={`mt-12  h-[0.4375rem]  w-full bg-gray-2`} />
         <section className="mt-12 w-full">
           <p className="font-AppleEB  text-2xl text-main-4">
             <span className="font-AppleEB text-2xl text-main-3 ">
