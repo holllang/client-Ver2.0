@@ -42,7 +42,7 @@ export default function FitHobby({
                 }}
               />
             </div>
-            <span className="py-3 text-[1rem]">{index + 1}위</span>
+            <span className="py-3 text-[1rem] text-gray-7">{index + 1}위</span>
           </div>
         ))}
       </section>

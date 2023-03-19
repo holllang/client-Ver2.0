@@ -33,7 +33,7 @@ function HobbyDetail({ HobbyDetailTypes, isShow = false }: HobbyDetailProps) {
           alt="hobby pictogramImage "
         />
       </div>
-      <p className="mb-12 text-[1.375rem] font-semibold">
+      <p className="mb-12 text-[1.375rem] font-semibold text-gray-7">
         {currentHobby?.name}
       </p>
       <p className="mb-24 text-[1.125rem] leading-[1.875rem]">
