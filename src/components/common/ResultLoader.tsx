@@ -10,19 +10,21 @@ export default function ResultLoader() {
   }, []);
 
   return (
-    <div className="z-50 flex h-[60rem] flex-col items-center justify-center bg-white text-center">
+    <div className="z-100 flex h-[60rem] flex-col items-center justify-center  text-center ">
       <div className="absolute top-0">
         <TopBar />
       </div>
-      <div className="h-[16rem] w-[16rem] overflow-hidden rounded-full bg-main-4 ">
-        <div className="relative mt-[2.6rem] h-[10rem] w-[200rem] overflow-hidden">
-          <Image
-            alt="loading"
-            src={LOADING_IMAGE_SRC}
-            width={3200}
-            height={3000}
-            className="z-10 animate-pass-by-1 object-cover"
-          />
+      <div className="z-50 flex w-full justify-center bg-white">
+        <div className="h-[16rem] w-[16rem] overflow-hidden rounded-full bg-white">
+          <div className="relative mt-[2.6rem] h-[10rem] w-[200rem] overflow-hidden">
+            <Image
+              alt="loading"
+              src={LOADING_IMAGE_SRC}
+              width={3200}
+              height={3000}
+              className="z-10 animate-pass-by-1 object-cover"
+            />
+          </div>
         </div>
       </div>
       <p className="mt-[3.5rem] font-AppleB text-[1.375rem] leading-8 text-gray-6">

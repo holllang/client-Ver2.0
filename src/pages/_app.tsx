@@ -6,7 +6,6 @@ import { Suspense, useEffect, useState } from 'react';
 import { Router } from 'next/router';
 import type { AppProps } from 'next/app';
 import Loader from '@components/common/Loader';
-import MetaHead from '@components/MetaHead';
 const LOADING_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/loading.png`;
 
 const client = new QueryClient({
@@ -73,7 +72,7 @@ export default function App({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <Layout>
-      <MetaHead />
+      {/* <MetaHead /> */}
       <Suspense fallback={<Loader />}>
         <RecoilRoot>
           <QueryClientProvider client={client}>
