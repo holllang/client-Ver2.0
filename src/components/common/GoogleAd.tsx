@@ -4,6 +4,7 @@ declare global {
     adsbygoogle: any;
   }
 }
+
 const GoogleAd = () => {
   useEffect(() => {
     if (typeof window !== 'undefined' && window.adsbygoogle) {
@@ -15,7 +16,7 @@ const GoogleAd = () => {
     var ads = document.getElementsByClassName('adsbygoogle').length;
     for (var i = 0; i < ads; i++) {
       try {
-        (ads = window.adsbygoogle || []).push({});
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {}
     }
   }, []);
