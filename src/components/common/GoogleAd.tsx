@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
-
-declare global {
-  interface Window {
-    adsbygoogle: any;
-  }
-}
+import { useEffect } from 'react';
 
 const GoogleAd = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.adsbygoogle) {
+      window.adsbygoogle.push({});
+    }
+  }, []);
   return (
     <div>
       <ins
@@ -19,6 +18,7 @@ const GoogleAd = () => {
         }}
         data-ad-client="ca-pub-1919598055512436"
         data-ad-slot="1678485541"
+        data-full-width-responsive="true"
       ></ins>
     </div>
   );

@@ -23,6 +23,7 @@ declare global {
   interface Window {
     Kakao: any;
     kakao: any;
+    adsbygoogle: any;
   }
 }
 function imagePreload(urls: string[]) {
