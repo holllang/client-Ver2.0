@@ -81,7 +81,6 @@ export default function Result() {
 
           <IconTurn className="my-1" />
           <span className="text-[1rem] text-gray-5">회전하면 돌아가요!</span>
-
           <p className="mt-12 w-full text-[1.125rem] leading-[1.5625rem] text-gray-8">
             {recommendation?.hobbyType.description}
           </p>

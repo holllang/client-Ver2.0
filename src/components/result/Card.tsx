@@ -28,7 +28,7 @@ export default function Card({ hobby, id }: CardProps) {
               query: { id: id, view: 'hobbyDetail', hobbyid: hobby.id },
             });
           }}
-          className="h-[3.5rem] rounded-[1.25rem] font-AppleM text-[1.125rem]  text-gray-7 "
+          className="h-[3.5rem] rounded-[1.25rem] font-AppleM  text-[1.125rem] text-gray-7"
         >
           더 알아보기
         </Button>
