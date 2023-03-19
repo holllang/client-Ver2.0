@@ -19,7 +19,7 @@ const GoogleAd = () => {
       } catch (e) {}
     }
   }, []);
-
+  console.log(process.env.NODE_ENV);
   useEffect(() => {
     if (process.env.NODE_ENV === 'production')
       try {
@@ -28,6 +28,17 @@ const GoogleAd = () => {
       } catch (e) {
         console.error('AdvertiseError', e);
       }
+  }, []);
+
+  const GOOGLE_ADD_OBJECT = {
+    google_ad_client: 'ca-pub-1919598055512436',
+    enable_page_level_ads: true,
+  };
+
+  useEffect(() => {
+    if (window.adsbygoogle) {
+      (window.adsbygoogle = window.adsbygoogle || []).push(GOOGLE_ADD_OBJECT);
+    }
   }, []);
 
   if (process.env.NODE_ENV !== 'production')
