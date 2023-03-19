@@ -1,11 +1,18 @@
-import TopBar from '@components/common/TopBar';
 import Forward from '@public/static/forward.svg';
 import { useRouter } from 'next/router';
 import React, { useRef, useEffect, useState } from 'react';
 import { getUserCount } from '../api/getUserCount';
 import Image from 'next/image';
 import { useQuery } from 'react-query';
-import GoogleAd from '@components/common/GoogleAd';
+import dynamic from 'next/dynamic';
+
+const TopBar = dynamic(() => import('@components/common/TopBar'), {
+  ssr: false,
+});
+
+const GoogleAd = dynamic(() => import('@components/common/GoogleAd'), {
+  ssr: false,
+});
 
 export default function Home() {
   const TAPBAR_HEIGHT = 84;
