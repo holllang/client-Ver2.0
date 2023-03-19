@@ -12,8 +12,8 @@ export default function Top20List({ ranking, title, count }: Top20ListProps) {
       <span className="font-AppleB text-[1.25rem] text-main-4">
         {ranking}위
       </span>
-      <span>{title}</span>
-      <span>{count}명</span>
+      <span className="text-gray-7">{title}</span>
+      <span className="text-gray-7">{count}명</span>
     </div>
   );
 }

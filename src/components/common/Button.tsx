@@ -27,8 +27,8 @@ export default function Button({
     switch (property) {
       case 'primary':
         return small
-          ? '!h-[3.5rem] rounded-[20px] bg-main-2 hover:bg-main-4 text-[1.125rem]'
-          : 'bg-main-2 hover:bg-main-4 text-[1.375rem]';
+          ? '!h-[3.5rem] !rounded-[1.25rem] bg-main-2 hover:bg-main-4 text-[1.125rem]'
+          : 'bg-main-2 hover:bg-main-4 !text-gray-7 text-[1.375rem]';
       case 'secondary':
         return 'text-[1.375rem] hover:bg-gray-4 bg-gray-2';
       case 'question':

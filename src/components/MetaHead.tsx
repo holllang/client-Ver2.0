@@ -1,7 +1,19 @@
 import Head from 'next/head';
 import Script from 'next/script';
+import { useEffect } from 'react';
 
 export default function MetaHead() {
+  const GOOGLE_ADD_OBJECT = {
+    google_ad_client: 'ca-pub-1919598055512436',
+    enable_page_level_ads: true,
+  };
+
+  useEffect(() => {
+    if (window.adsbygoogle) {
+      (window.adsbygoogle = window.adsbygoogle || []).push(GOOGLE_ADD_OBJECT);
+    }
+  }, []);
+
   return (
     <Head>
       <link rel="shortcut icon" href="/static/favicon.ico" />
