@@ -173,7 +173,7 @@ export default function Result() {
         </>
       )}
       <div className="h-8" />
-      <GoogleAd></GoogleAd>
+      <GoogleAd />
     </div>
   );
 }

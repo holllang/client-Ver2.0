@@ -151,7 +151,7 @@ export default function question() {
                 ),
               )}
             </div>
-            <GoogleAd></GoogleAd>
+            <GoogleAd />
           </section>
         )}
       </div>
