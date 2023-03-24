@@ -53,10 +53,10 @@ export default class MyDocument extends Document {
           `,
             }}
           />
-          <Script
+          <script
             defer
             src="https://cdn.swygbro.com/public/widget/swyg-widget.js"
-          ></Script>
+          ></script>
           <meta property="og:article:author" content="홀랑에 홀랑 빠져봐!" />
           <script
             async
