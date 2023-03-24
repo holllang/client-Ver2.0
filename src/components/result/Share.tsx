@@ -99,7 +99,6 @@ export default function Share({
           <KakaoShare />
         </section>
       )}
-      <GoogleAd />
     </div>
   );
 }
