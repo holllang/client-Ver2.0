@@ -189,8 +189,8 @@ export default function Home() {
         >
           둘러보기
         </button>
-        <GoogleAd />
       </div>
+      <GoogleAd />
     </div>
   );
 }
