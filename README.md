@@ -1,37 +1,23 @@
-# 📁 Folder Structure
+# 홀랑: 인공지능 기반 취미 추천 메타 콘텐츠 서비스
 
-### Root directory layout
+## 📖 소개
 
-```
-├── ...
-├── public
-├── src
-│ ├── apis
-│ ├── components
-│ │ ├── common
-│ │ └── elements
-│ ├── constants
-│ ├── features
-│ ├── hooks
-│ ├── pages
-│ ├── styles
-│ └── utils
-├── README.md               
-└── ...
-```
+'홀랑'은 인공지능 기반의 개인화된 취미 추천 서비스입니다. 사용자의 특성과 선호, 현재 상태를 이해하고 분석하여 가장 적합한 취미를 추천합니다. 또한, 취미에 대한 상세 정보, 실제 취미 수행을 위한 가이드라인, 관련 커뮤니티 소개 등 메타 콘텐츠를 제공하여, 사용자가 취미를 시작하고 이어나가는 데 필요한 모든 정보와 지원을 제공합니다.
 
-# 🚀 yarn
+## 🚀 서비스를 기획하게 된 계기
 
-```
-# npm install
-yarn install 또는 yarn
+많은 사람들이 새로운 취미를 찾거나 이해하는데 어려움을 겪고 있습니다. 기존의 취미 추천 서비스들은 사용자의 개인적인 선호나 필요를 충분히 고려하지 못하고 있었습니다. 이러한 문제를 해결하고자 '홀랑'을 기획하게 되었습니다. 홀랑은 취미의 세계를 탐색하고 새로운 가능성을 발견하는 여정을 도와주는 가이드 역할을 수행하려 합니다.
 
-# npm i <package> --save
-yarn add <package>
+## 🌱 팀 문화
 
-# 패키지 삭제
-yarn remove <package>
+우리 팀은 서로에게 적극적으로 피드백을 주고받는 환경을 추구하며, GitFlow를 통해 체계적인 브랜치 전략을 적용하고 있습니다.
 
-# 개발 서버 실행
-yarn dev
-```
+## 🛠 기술 스택
+
+**Frontend** `React` `NextJS` `Typescript` `React-Query`
+
+**Backend** `Java` `Spring Boot`
+
+**Database** `MySQL`
+
+**Infra** `AWS EC2` `AWS RDS`
