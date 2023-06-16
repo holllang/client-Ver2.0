@@ -1,3 +1,4 @@
+import { CONFIG } from '@config';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import Script from 'next/script';
 
@@ -37,7 +38,7 @@ export default class MyDocument extends Document {
           />
           <Script>
             strategy="afterInteractive" src=
-            {`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_APPKEY}`}
+            {`https://www.googletagmanager.com/gtag/js?id=${CONFIG.KAKAO_APP_KEY}`}
           </Script>
           <Script
             id="gtag-init"
@@ -47,7 +48,7 @@ export default class MyDocument extends Document {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_APPKEY}', {
+            gtag('config', '${CONFIG.KAKAO_APP_KEY}', {
               page_path: window.location.pathname,
             });
           `,
