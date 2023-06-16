@@ -5,6 +5,7 @@ import { getUserCount } from '../api/getUserCount';
 import Image from 'next/image';
 import { useQuery } from 'react-query';
 import dynamic from 'next/dynamic';
+import { CONFIG } from '@config';
 
 const TopBar = dynamic(() => import('@components/common/TopBar'), {
   ssr: false,
@@ -132,7 +133,7 @@ export default function Home() {
             width={450}
             height={450}
             alt={'hollangLogo'}
-            src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/home.png`}
+            src={`${CONFIG.API_CLOUD}/images/etc/home.png`}
           ></Image>
         </div>
         <p className="mt-[5.625rem] text-[1.125rem] text-gray-5">

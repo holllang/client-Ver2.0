@@ -1,3 +1,4 @@
+import { CONFIG } from '@config';
 import React, { useEffect, useState } from 'react';
 
 interface LayoutProps {
@@ -38,14 +39,14 @@ export default function Layout({ children }: LayoutProps) {
         className={`fixed left-0 top-0 h-full ${
           applicationValue && applicationValue.innerWidth > 450 ? '' : 'hidden'
         } `}
-        src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/background-left.png`}
+        src={`${CONFIG.API_CLOUD}/images/etc/background-left.png`}
         alt="background-leftImage"
       />
       <img
         className={`fixed right-0 top-0 h-full object-cover ${
           applicationValue && applicationValue.innerWidth > 450 ? '' : 'hidden'
         } `}
-        src={`${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/background-right.png`}
+        src={`${CONFIG.API_CLOUD}/images/etc/background-right.png`}
         alt="background-rightImage"
       />
       <div

@@ -1,7 +1,8 @@
+import { CONFIG } from '@config';
 import axios from 'axios';
 
 const baseInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_END_POINT,
+  baseURL: CONFIG.API_END_POINT,
   timeout: 5000,
 });
 

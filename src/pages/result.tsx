@@ -18,7 +18,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { HobbyType } from 'types/result';
 import GoogleAd from '@components/common/GoogleAd';
 
-const FIT_HOBBY_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
+import { CONFIG } from '@config';
+const FIT_HOBBY_IMAGE_SRC = `${CONFIG.API_CLOUD}/images/etc/question-mark.png`;
 
 export default function Result() {
   const router = useRouter();

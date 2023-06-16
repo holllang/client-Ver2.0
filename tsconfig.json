@@ -24,7 +24,8 @@
       "@hooks/*": ["./hooks/*"],
       "@utils/*": ["./utils/*"],
       "@public/*": ["../public/*"],
-      "@types/*": ["../types/*"]
+      "@types/*": ["../types/*"],
+      "@config": ["../config.ts"]
     }
   },
   "include": [
