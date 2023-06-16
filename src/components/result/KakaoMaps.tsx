@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Marker1 from '@public/static/marker1.svg';
 import Marker2 from '@public/static/marker2.svg';
 import Marker3 from '@public/static/marker3.svg';
+import { CONFIG } from '@config';
 
 function KakaoMaps({ hobbyName }: { hobbyName: string }) {
   const container = useRef(null);
@@ -10,7 +11,7 @@ function KakaoMaps({ hobbyName }: { hobbyName: string }) {
 
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&libraries=services&autoload=false`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${CONFIG.KAKAO_APP_KEY}&libraries=services&autoload=false`;
     script.addEventListener('load', () => setMapLoaded(true));
     document.head.appendChild(script);
   }, []);

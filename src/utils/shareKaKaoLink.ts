@@ -1,9 +1,11 @@
+import { CONFIG } from '@config';
+
 export const shareKakao = (uri: string) => {
-  const SHARE_URI = `${process.env.NEXT_PUBLIC_CLIENT}/${uri}&isshared=true`;
+  const SHARE_URI = `${CONFIG.CLINT}/${uri}&isshared=true`;
   if (window.Kakao) {
     const kakao = window.Kakao;
     if (!kakao.isInitialized()) {
-      kakao.init(process.env.NEXT_PUBLIC_API_SHARE_KAKAO_LINK_KEY);
+      kakao.init(CONFIG.KAKAO_APP_KEY);
     }
 
     kakao.Link.sendDefault({

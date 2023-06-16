@@ -6,7 +6,8 @@ import { Suspense, useEffect, useState } from 'react';
 import { Router } from 'next/router';
 import type { AppProps } from 'next/app';
 import Loader from '@components/common/Loader';
-const LOADING_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/loading.png`;
+import { CONFIG } from '@config';
+const LOADING_IMAGE_SRC = `${CONFIG.API_CLOUD}/images/etc/loading.png`;
 
 const client = new QueryClient({
   defaultOptions: {
@@ -70,6 +71,7 @@ export default function App({ Component, pageProps }: AppProps) {
       Router.events.off('routeChangeError', end);
     };
   }, []);
+
   return (
     <Layout>
       {/* <MetaHead /> */}

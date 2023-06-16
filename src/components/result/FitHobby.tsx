@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { FitHobbyType } from 'types/result';
+import { CONFIG } from '@config';
 
 interface FitHobbyProps {
   fitHobbyTypes: FitHobbyType[];
@@ -18,7 +19,7 @@ export default function FitHobby({
   const selectedType = fitHobbyTypes.filter(
     (fitHobbyType) => +fitHobbyType.id === select,
   )[0];
-  const QUESTION_IMAGE_SRC = `${process.env.NEXT_PUBLIC_API_CLOUD}/images/etc/question-mark.png`;
+  const QUESTION_IMAGE_SRC = `${CONFIG.API_CLOUD}/images/etc/question-mark.png`;
 
   return (
     <div className={isShow ? '' : 'hidden'}>
