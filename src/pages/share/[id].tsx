@@ -8,6 +8,7 @@ import html2canvas from 'html2canvas';
 import GoogleAd from '@components/common/GoogleAd';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
+import TopBar from '@components/common/TopBar';
 
 interface ResultPageProps {
   id: number;
@@ -23,9 +24,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     `/recommendations/${id}`,
   );
   const recommendation = data.data.recommendation;
-  // isShared={router?.query.isshared === 'true'}
-  // isShow={!isLoading && view === 'share'}
-
   return { props: { id, recommendation, isShared: isShared === 'true' } };
 };
 
@@ -35,8 +33,6 @@ export default function Share({
   isShared,
 }: ResultPageProps) {
   const containerRef = useRef<any>(null);
-
-  const isShow = true;
 
   const {
     hobbyType,
@@ -59,10 +55,15 @@ export default function Share({
   };
   return (
     <div
-      className={`flex flex-col items-center px-[0.9375rem] pb-[1.875rem] text-center ${
-        !isShow && 'hidden'
-      }`}
+      className={`flex flex-col items-center px-[0.9375rem] pb-[1.875rem] text-center `}
     >
+      <TopBar
+        mainMessage="result"
+        isBackButton={true}
+        onBackButton={() => {
+          router.back();
+        }}
+      />
       <p className="mt-6 mb-10 text-[1.5rem] font-bold text-main-4">
         나의<span className="text-[1.5rem] text-main-3"> 홀랑 </span>공유하기
       </p>
