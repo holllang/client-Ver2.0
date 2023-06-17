@@ -35,7 +35,6 @@ export const getStaticProps = async () => {
 export default function question({ data }: { data: QuestionDataType[] }) {
   console.log(data);
   const [currentPage, setCurrentPage] = useState(1);
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [questionArray, setQuestionArray] = useState<
     { questionNumber: number; answerNumber: number }[]
   >([]);
@@ -48,7 +47,6 @@ export default function question({ data }: { data: QuestionDataType[] }) {
   // const nickname = localStorage.getItem('nickname') || '';
 
   const handleClickQuestion = (clickedIndex: number) => {
-    setIsButtonClicked(true);
     if (currentPage === MAX_PAGE) {
       const getData = async () => {
         const resData = await getUserResult(
@@ -110,7 +108,6 @@ export default function question({ data }: { data: QuestionDataType[] }) {
           <div className="mb-13 flex w-full flex-col gap-4">
             {data[currentPage - 1].answers.map(({ content, id }, index) => (
               <Button
-                disabled={isButtonClicked}
                 key={id}
                 onClick={() => handleClickQuestion(index)}
                 type="button"
