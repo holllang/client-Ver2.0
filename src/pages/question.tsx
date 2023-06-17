@@ -1,19 +1,19 @@
 import Button from '@components/common/Button';
+import GoogleAd from '@components/common/GoogleAd';
 import ProgressBar from '@components/common/ProgressBar';
 import TopBar from '@components/common/TopBar';
+import { getUserQuestion, getUserResult } from 'api/getUserQuestion';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useQuery } from 'react-query';
-import {
-  GetUserQuestionType,
-  QuestionContentType,
-} from 'types/getUserQuestion';
+import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { UserRecommendation } from 'store/atom';
-import { getUserQuestion, getUserResult } from 'api/getUserQuestion';
-import Loader from '@components/common/Loader';
-import GoogleAd from '@components/common/GoogleAd';
+
+interface QuestionContentType {
+  id: number;
+  content: string;
+  number: number;
+}
 
 interface QuestionDataType {
   answers: QuestionContentType[];
@@ -25,7 +25,6 @@ interface QuestionDataType {
 
 export const getStaticProps = async () => {
   const { data } = await getUserQuestion();
-
   return {
     props: {
       data: data.data.test.questions,
@@ -34,6 +33,7 @@ export const getStaticProps = async () => {
 };
 
 export default function question({ data }: { data: QuestionDataType[] }) {
+  console.log(data);
   const [currentPage, setCurrentPage] = useState(1);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [questionArray, setQuestionArray] = useState<
@@ -44,8 +44,8 @@ export default function question({ data }: { data: QuestionDataType[] }) {
   const MAX_PAGE = 12;
   const setUserRecommendation = useSetRecoilState(UserRecommendation);
 
-  // const nickname = '규성';
-  const nickname = localStorage.getItem('nickname') || '';
+  const nickname = '규성';
+  // const nickname = localStorage.getItem('nickname') || '';
 
   const handleClickQuestion = (clickedIndex: number) => {
     setIsButtonClicked(true);
