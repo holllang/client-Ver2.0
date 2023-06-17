@@ -132,16 +132,13 @@ export default function ResultPage({
               width={100}
               height={100}
               onClick={() => {
-                router.push({
-                  pathname: '/result',
-                  query: { id: id, view: 'fitHobby' },
-                });
+                router.push(`/result/${id}/fitHobby`);
               }}
             />
           </div>
           <div className="mt-16">
             <Link
-              href={`/share/${id}`}
+              href={`/result/${id}/share`}
               className="flex h-[4.375rem] w-full cursor-pointer items-center justify-center rounded-[1.875rem] bg-main-2 py-[1.25rem] text-[1.375rem]  font-normal  text-gray-8 ease-in hover:bg-main-4 disabled:cursor-not-allowed"
             >
               공유하기
