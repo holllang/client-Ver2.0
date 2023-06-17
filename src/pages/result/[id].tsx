@@ -21,11 +21,13 @@ import GoogleAd from '@components/common/GoogleAd';
 import { CONFIG } from '@config';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
+import Link from 'next/link';
 const FIT_HOBBY_IMAGE_SRC = `${CONFIG.API_CLOUD}/images/etc/question-mark.png`;
 
 interface ResultPageProps {
   id: number;
   recommendation: RecommendationType;
+  mbti: string;
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -34,16 +36,18 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     `/recommendations/${id}`,
   );
   const recommendation = data.data.recommendation;
-  return { props: { id, recommendation, data } };
+  const mbti = recommendation?.hobbyType.imageUrl.slice(55, 59);
+  return { props: { id, recommendation, mbti } };
 };
 
-export default function ResultPage({ id, recommendation }: ResultPageProps) {
+export default function ResultPage({
+  id,
+  recommendation,
+  mbti,
+}: ResultPageProps) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const sliderRef = useRef<HTMLDivElement>(null);
-  console.log(recommendation);
-
-  const mbti = recommendation?.hobbyType.imageUrl.slice(55, 59);
 
   const view = useMemo(() => {
     return router.query.view !== undefined ? router.query.view : '';
@@ -129,34 +133,26 @@ export default function ResultPage({ id, recommendation }: ResultPageProps) {
               height={100}
               onClick={() => {
                 router.push({
-                  pathname: 'result',
+                  pathname: '/result',
                   query: { id: id, view: 'fitHobby' },
                 });
               }}
             />
           </div>
           <div className="mt-16">
-            <div>
-              <Button
-                onClick={() => {
-                  router.push({
-                    pathname: 'result',
-                    query: { id: id, view: 'share' },
-                  });
-                }}
-                className="rounded-[1.875rem]"
-              >
-                공유하기
-              </Button>
-            </div>
-            <div className="mt-4">
-              <Button
-                onClick={() => router.push('/')}
-                className="rounded-[1.875rem]"
-              >
-                다시하기
-              </Button>
-            </div>
+            <Link
+              href={`/result?id=${id}&view=share`}
+              className="flex h-[4.375rem] w-full cursor-pointer items-center justify-center rounded-[1.875rem] bg-main-2 py-[1.25rem] text-[1.375rem]  font-normal  text-gray-8 ease-in hover:bg-main-4 disabled:cursor-not-allowed"
+            >
+              공유하기
+            </Link>
+            <Link
+              href="/"
+              className="mt-4 flex h-[4.375rem] w-full cursor-pointer items-center justify-center rounded-[1.875rem] bg-main-2 py-[1.25rem] text-[1.375rem]  font-normal  text-gray-8 ease-in hover:bg-main-4 disabled:cursor-not-allowed"
+            >
+              다시하기
+            </Link>
+
             <div className="h-[2.8125rem]" />
           </div>
         </section>
