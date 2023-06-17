@@ -5,7 +5,7 @@ import TopBar from '@components/common/TopBar';
 import { getUserQuestion, getUserResult } from 'api/getUserQuestion';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { UserRecommendation } from 'store/atom';
 import { QuestionDataType } from 'types/getUserQuestion';
@@ -20,18 +20,19 @@ export const getStaticProps = async () => {
 };
 
 export default function question({ data }: { data: QuestionDataType[] }) {
-  console.log(data);
   const [currentPage, setCurrentPage] = useState(1);
   const [questionArray, setQuestionArray] = useState<
     { questionNumber: number; answerNumber: number }[]
   >([]);
+  const [nickname, setNickname] = useState<string>('');
+
+  useEffect(() => {
+    setNickname(localStorage.getItem('nickname') || '');
+  }, []);
 
   const router = useRouter();
   const MAX_PAGE = 12;
   const setUserRecommendation = useSetRecoilState(UserRecommendation);
-
-  const nickname = '규성';
-  // const nickname = localStorage.getItem('nickname') || '';
 
   const handleClickQuestion = (clickedIndex: number) => {
     if (currentPage === MAX_PAGE) {
@@ -92,10 +93,10 @@ export default function question({ data }: { data: QuestionDataType[] }) {
           {data[currentPage - 1].content.replace('000', nickname)}
         </p>
         <div className="mb-13 flex w-full flex-col gap-4">
-          {data[currentPage - 1].answers.map(({ content, id }, index) => (
+          {data[currentPage - 1].answers.map(({ content, id }) => (
             <Button
               key={id}
-              onClick={() => handleClickQuestion(index)}
+              onClick={() => handleClickQuestion(id)}
               type="button"
               property="question"
             >
