@@ -5,10 +5,9 @@ import TopBar from '@components/common/TopBar';
 import { getUserQuestion, getUserResult } from 'api/getUserQuestion';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { UserRecommendation } from 'store/atom';
-
 interface QuestionContentType {
   id: number;
   content: string;
@@ -33,18 +32,19 @@ export const getStaticProps = async () => {
 };
 
 export default function question({ data }: { data: QuestionDataType[] }) {
-  console.log(data);
   const [currentPage, setCurrentPage] = useState(1);
   const [questionArray, setQuestionArray] = useState<
     { questionNumber: number; answerNumber: number }[]
   >([]);
+  const [nickname, setNickname] = useState<string>('');
+
+  useEffect(() => {
+    setNickname(localStorage.getItem('nickname') || '');
+  }, []);
 
   const router = useRouter();
   const MAX_PAGE = 12;
   const setUserRecommendation = useSetRecoilState(UserRecommendation);
-
-  const nickname = '규성';
-  // const nickname = localStorage.getItem('nickname') || '';
 
   const handleClickQuestion = (clickedIndex: number) => {
     if (currentPage === MAX_PAGE) {
