@@ -23,7 +23,7 @@ interface QuestionDataType {
   number: number;
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const { data } = await getUserQuestion();
 
   return {
@@ -44,6 +44,9 @@ export default function question({ data }: { data: QuestionDataType[] }) {
   const MAX_PAGE = 12;
   const setUserRecommendation = useSetRecoilState(UserRecommendation);
 
+  // const nickname = '규성';
+  const nickname = localStorage.getItem('nickname') || '';
+
   const handleClickQuestion = (clickedIndex: number) => {
     setIsButtonClicked(true);
     if (currentPage === MAX_PAGE) {
@@ -53,8 +56,7 @@ export default function question({ data }: { data: QuestionDataType[] }) {
             ...questionArray,
             { questionNumber: currentPage, answerNumber: clickedIndex + 1 },
           ],
-          '규성',
-          // localStorage.getItem('nickname') as string,
+          nickname,
         );
         const userId = resData.data.data.recommendation.id;
         setUserRecommendation(userId);
@@ -103,11 +105,7 @@ export default function question({ data }: { data: QuestionDataType[] }) {
             src={data[currentPage - 1].imageUrl}
           />
           <p className="mb-8 flex h-[5.75rem] items-center text-center text-[1.25rem] leading-7">
-            {data[currentPage - 1].content.replace(
-              '000',
-              '규성',
-              // localStorage.getItem('nickname') || '',
-            )}
+            {data[currentPage - 1].content.replace('000', nickname)}
           </p>
           <div className="mb-13 flex w-full flex-col gap-4">
             {data[currentPage - 1].answers.map(({ content, id }, index) => (
