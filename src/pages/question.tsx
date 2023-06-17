@@ -105,10 +105,10 @@ export default function question({ data }: { data: QuestionDataType[] }) {
           {data[currentPage - 1].content.replace('000', nickname)}
         </p>
         <div className="mb-13 flex w-full flex-col gap-4">
-          {data[currentPage - 1].answers.map(({ content, id }, index) => (
+          {data[currentPage - 1].answers.map(({ content, id }) => (
             <Button
               key={id}
-              onClick={() => handleClickQuestion(index)}
+              onClick={() => handleClickQuestion(id)}
               type="button"
               property="question"
             >
