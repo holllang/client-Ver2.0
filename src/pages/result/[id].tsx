@@ -141,7 +141,7 @@ export default function ResultPage({
           </div>
           <div className="mt-16">
             <Link
-              href={`/result?id=${id}&view=share`}
+              href={`/share/${id}`}
               className="flex h-[4.375rem] w-full cursor-pointer items-center justify-center rounded-[1.875rem] bg-main-2 py-[1.25rem] text-[1.375rem]  font-normal  text-gray-8 ease-in hover:bg-main-4 disabled:cursor-not-allowed"
             >
               공유하기
