@@ -93,33 +93,31 @@ export default function question({ data }: { data: QuestionDataType[] }) {
           currentPage < 10 ? '0' + currentPage : currentPage
         }`}</p>
       </section>
-      {data[currentPage - 1] !== undefined && (
-        <section className="flex flex-col items-center ">
-          <Image
-            className="mb-[2rem] rounded-[1.25rem]  px-4"
-            alt="image that explain Question"
-            width={450}
-            height={450}
-            src={data[currentPage - 1].imageUrl}
-          />
-          <p className="mb-8 flex h-[5.75rem] items-center text-center text-[1.25rem] leading-7">
-            {data[currentPage - 1].content.replace('000', nickname)}
-          </p>
-          <div className="mb-13 flex w-full flex-col gap-4">
-            {data[currentPage - 1].answers.map(({ content, id }, index) => (
-              <Button
-                key={id}
-                onClick={() => handleClickQuestion(index)}
-                type="button"
-                property="question"
-              >
-                {content}
-              </Button>
-            ))}
-          </div>
-          <GoogleAd />
-        </section>
-      )}
+      <section className="flex flex-col items-center ">
+        <Image
+          className="mb-[2rem] rounded-[1.25rem]  px-4"
+          alt="image that explain Question"
+          width={450}
+          height={450}
+          src={data[currentPage - 1].imageUrl}
+        />
+        <p className="mb-8 flex h-[5.75rem] items-center text-center text-[1.25rem] leading-7">
+          {data[currentPage - 1].content.replace('000', nickname)}
+        </p>
+        <div className="mb-13 flex w-full flex-col gap-4">
+          {data[currentPage - 1].answers.map(({ content, id }, index) => (
+            <Button
+              key={id}
+              onClick={() => handleClickQuestion(index)}
+              type="button"
+              property="question"
+            >
+              {content}
+            </Button>
+          ))}
+        </div>
+        <GoogleAd />
+      </section>
     </div>
   );
 }
