@@ -19,13 +19,16 @@ import { HobbyType } from 'types/result';
 import GoogleAd from '@components/common/GoogleAd';
 
 import { CONFIG } from '@config';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { IsLoading } from 'store/atom';
 const FIT_HOBBY_IMAGE_SRC = `${CONFIG.API_CLOUD}/images/etc/question-mark.png`;
 
 export default function Result() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const sliderRef = useRef<HTMLDivElement>(null);
   const id = router?.query.id ?? 0;
+  const [isLoading, setIsLoading] = useRecoilState(IsLoading);
+
   const { data } = useQuery(
     ['getRecommendation', id],
     () => getRecommendation(+id),
@@ -48,6 +51,7 @@ export default function Result() {
     });
   }, [view]);
 
+  if (isLoading) return <ResultLoader />;
   return (
     <div id="result" className="text-center" ref={sliderRef}>
       {!isLoading && (
@@ -64,7 +68,6 @@ export default function Result() {
         />
       )}
 
-      {isLoading && <ResultLoader />}
       <div className={`overflow-hidden ${(isLoading || !!view) && 'hidden'}`}>
         <section className="mt-6 flex flex-col items-center">
           <p className="font-AppleB text-2xl text-main-3">

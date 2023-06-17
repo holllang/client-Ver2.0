@@ -1,3 +1,4 @@
+import TopBar from '@components/common/TopBar';
 import axios from 'axios';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
@@ -32,6 +33,7 @@ function HobbyDetail({ HobbyDetailTypes, hobbyId }: HobbyDetailPageProps) {
   })[0];
   return (
     <div className="pt-4 pb-12 text-center">
+      <TopBar mainMessage="result" isBackButton />
       <p className="mb-10 text-[1.5rem] font-semibold text-main-4">
         더 알아보기
       </p>
