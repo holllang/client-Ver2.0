@@ -1,7 +1,7 @@
 import Back from '@public/static/back.svg';
 import MainLogo from '@public/static/main_logo.svg';
 import TestResultLogo from '@public/static/test_result_logo.svg';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import React from 'react';
 import Image from 'next/image';
 
@@ -21,15 +21,24 @@ export default function TopBar({
   return (
     <div className="flex w-full justify-between py-6">
       {isBackButton ? (
-        <button>
-          <Back onClick={onBackButton} />
-        </button>
+        <Image
+          src="/static/back.svg"
+          width={30}
+          height={30}
+          alt="back"
+          onClick={onBackButton}
+        />
       ) : (
         <div />
       )}
 
       {mainMessage === 'main' ? (
-        <Image alt="logo" src="/static/logo_main.png" width="100" height="0" />
+        <Image
+          alt="logo"
+          src="/static/logo_main.png"
+          width={100}
+          height={100}
+        />
       ) : (
         <TestResultLogo />
       )}
