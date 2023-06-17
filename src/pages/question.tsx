@@ -8,20 +8,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { UserRecommendation } from 'store/atom';
-
-interface QuestionContentType {
-  id: number;
-  content: string;
-  number: number;
-}
-
-interface QuestionDataType {
-  answers: QuestionContentType[];
-  content: string;
-  id: number;
-  imageUrl: string;
-  number: number;
-}
+import { QuestionDataType } from 'types/getUserQuestion';
 
 export const getStaticProps = async () => {
   const { data } = await getUserQuestion();
